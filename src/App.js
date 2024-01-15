@@ -7,7 +7,7 @@ export default function App() {
 			<div className="data">
 				<Intro
 					name="Jun Xiong (Bear)"
-					bio="Full Stack Developer wannabe, desire to create something on my own, that is the reason I start learning programming. I wish to create value for the other and satisfied my desire!"
+					bio="Full Stack Developer wannabe, desire to create something on my own, that is the reason I start learning programming. I wish to create value for others and fulfilled my desires!"
 				/>
 				<SkillList
 					skillOne="HTML+CSS 💪"
