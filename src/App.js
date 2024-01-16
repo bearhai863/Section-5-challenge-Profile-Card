@@ -2,10 +2,10 @@ import "./index.css";
 
 const skillsData = [
 	{
-        skill: "Svelte",
+		skill: "Svelte",
 		level: "beginner",
 		color: "pink",
-    },
+	},
 	{
 		skill: "HTML+CSS",
 		level: "advanced",
@@ -48,11 +48,11 @@ export default function App() {
 	);
 }
 
-function Avatar({photoSource, name}) {
+function Avatar({ photoSource, name }) {
 	return <img className="avatar" src={photoSource} alt={name} />;
 }
 
-function Intro({name, bio}) {
+function Intro({ name, bio }) {
 	return (
 		<div>
 			<h1>{name}</h1>
@@ -72,20 +72,27 @@ function SkillList() {
 }
 
 function Skill({ eachSkill }) {
+	const { skill, color, level } = eachSkill;
+
 	const style = {
-		backgroundColor: eachSkill.color,
+		backgroundColor: color,
 	};
 
-	const emoji =
-		eachSkill.level === "beginner"
-			? "👶"
-			: eachSkill.level === "intermediate"
-			? "👍"
-			: "💪"; //advanced
+	// const emoji =
+	// 	level === "beginner"
+	// 		? "👶"
+	// 		: level === "intermediate"
+	// 		? "👍"
+	// 		: "💪"; //advanced
 
 	return (
 		<div className="skill" style={style}>
-			<span>{eachSkill.skill + " " + emoji}</span>
+			<span>{skill}</span>
+			<span>
+				{level === "beginner" && "👶"}
+				{level === "intermediate" && "👍"}
+				{level === "advanced" && "💪"}
+			</span>
 		</div>
 	);
 }
