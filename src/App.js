@@ -2,6 +2,11 @@ import "./index.css";
 
 const skillsData = [
 	{
+        skill: "Svelte",
+		level: "beginner",
+		color: "pink",
+    },
+	{
 		skill: "HTML+CSS",
 		level: "advanced",
 		color: "orange",
@@ -35,7 +40,7 @@ export default function App() {
 			<div className="data">
 				<Intro
 					name="Jun Xiong (Bear)"
-					bio="Full Stack Developer wannabe, desire to create something on my own, that is the reason I start learning programming. I wish to create value for others and fulfilled my desires!"
+					bio="Software Developer wannabe, desire to create something on my own, that's the reason I started to learn programming. I wish to create value for others and fulfilled my desires!"
 				/>
 				<SkillList />
 			</div>
@@ -43,15 +48,15 @@ export default function App() {
 	);
 }
 
-function Avatar(props) {
-	return <img className="avatar" src={props.photoSource} alt={props.name} />;
+function Avatar({photoSource, name}) {
+	return <img className="avatar" src={photoSource} alt={name} />;
 }
 
-function Intro(props) {
+function Intro({name, bio}) {
 	return (
 		<div>
-			<h1>{props.name}</h1>
-			<p>{props.bio}</p>
+			<h1>{name}</h1>
+			<p>{bio}</p>
 		</div>
 	);
 }
@@ -67,15 +72,19 @@ function SkillList() {
 }
 
 function Skill({ eachSkill }) {
+	const style = {
+		backgroundColor: eachSkill.color,
+	};
+
 	const emoji =
 		eachSkill.level === "beginner"
 			? "👶"
 			: eachSkill.level === "intermediate"
 			? "👍"
-			: "💪";
+			: "💪"; //advanced
 
 	return (
-		<div className="skill" style={{ backgroundColor: eachSkill.color }}>
+		<div className="skill" style={style}>
 			<span>{eachSkill.skill + " " + emoji}</span>
 		</div>
 	);
